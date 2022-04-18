@@ -8,25 +8,15 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    @IBOutlet weak var button: UIButton!
-    let manager = UserManager.shared
+    let userManager = UserManager.shared
+    weak var coordinator : MainCoordinator?
     override func viewDidLoad() {
         super.viewDidLoad()
-        if manager.currentUser == nil {
-            view.backgroundColor = .red
+        if userManager.currentUser == nil {
+            coordinator?.presentLoginScreen()
         } else {
-            view.backgroundColor = .green
+            coordinator?.presentHomeScreen()
         }
-    }
-
-
-    @IBAction func buttonDidTapped(_ sender: Any) {
-     
-        
-    }
-    @IBAction func secondButtonTaapped(_ sender: Any) {
-  
     }
 }
 

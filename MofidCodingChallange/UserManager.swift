@@ -6,7 +6,7 @@
 //
 
 import Foundation
-private let userCacheKey = "currentUser"
+private let userCacheKey = "xxx"
 
 class UserManager {
     static let shared = UserManager()
