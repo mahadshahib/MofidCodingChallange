@@ -20,13 +20,19 @@ class MainCoordinator : Coordinator {
         navigationController.pushViewController(defaultVC, animated: false)
     }
     func presentLoginScreen() {
+         DispatchQueue.main.async { [weak self] in
         let loginScreen = LoginViewController()
-        navigationController.pushViewController(loginScreen, animated: false)
+             loginScreen.coordinator = self
+             self?.navigationController.pushViewController(loginScreen, animated: false)
+         }
     }
     
     func presentHomeScreen() {
+        DispatchQueue.main.async { [weak self] in
         let homeScreen = HomeViewController()
-        navigationController.pushViewController(homeScreen, animated: false)
+            homeScreen.coordinator = self
+            self?.navigationController.pushViewController(homeScreen, animated: false)
+        }
     }
     
 }

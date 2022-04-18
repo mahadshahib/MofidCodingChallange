@@ -9,6 +9,8 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    let userManager = UserManager.shared
+    var coordinator : MainCoordinator?
     lazy var textField : UITextField = {
         let textField = UITextField()
         textField.placeholder = "09160730470"
@@ -21,6 +23,7 @@ class LoginViewController: UIViewController {
     }()
     lazy var loginButton : UIButton = {
         let button = UIButton(type: .system)
+        button.addTarget(self, action: #selector(self.loginAction), for: .touchUpInside)
         return button
     }()
     
@@ -56,17 +59,22 @@ class LoginViewController: UIViewController {
     }
     
     
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func loginAction() {
+        print("Button  Reached")
+        if let text = textField.text {
+        if textField.text?.count == 11 {
+            userManager.loginUser(with: text) { [weak self] isSuc in
+            //Move to Home
+                print("moving to home")
+                self?.coordinator?.presentHomeScreen()
+        }
+        } else {
+            print("phone number must be 11 characters")
+        }
+        } else {
+            print("textfield is empty")
+        }
     }
-    */
-
 }
 
 extension LoginViewController : UITextFieldDelegate {

@@ -6,7 +6,7 @@
 //
 
 import Foundation
-private let userCacheKey = "xxx"
+private let userCacheKey = "xxxx"
 
 class UserManager {
     static let shared = UserManager()
@@ -43,6 +43,18 @@ class UserManager {
             print(error.localizedDescription)
             completion(false)
             currentUser = nil
+        }
+    }
+    
+    
+    func loginUser(with phoneNumber:String , completion : @escaping (Bool)->()) {
+        let user = User(phoneNumber: phoneNumber, name: "MofidTestUser")
+        setCurrentUser(with: user) { isSuc in
+            if isSuc {
+                completion(true)
+            } else {
+                completion(false)
+            }
         }
     }
     
