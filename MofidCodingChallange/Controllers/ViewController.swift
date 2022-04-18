@@ -12,10 +12,10 @@ class ViewController: UIViewController {
     weak var coordinator : MainCoordinator?
     override func viewDidLoad() {
         super.viewDidLoad()
-        if userManager.currentUser == nil {
-            coordinator?.presentLoginScreen()
-        } else {
+        if let _ = userManager.currentUser {
             coordinator?.presentHomeScreen()
+        } else {
+            coordinator?.presentLoginScreen()
         }
     }
 }

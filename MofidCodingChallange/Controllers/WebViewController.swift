@@ -9,7 +9,10 @@ import UIKit
 import WebKit
 
 class WebViewController: UIViewController , WKNavigationDelegate {
+    
     var webView: WKWebView!
+    var userPhoneNumber : String?
+    
     override func loadView() {
         webView = WKWebView()
         webView.navigationDelegate = self
@@ -18,16 +21,20 @@ class WebViewController: UIViewController , WKNavigationDelegate {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        let url = URL(string: "https://www.cheetateam.ir")!
-                webView.load(URLRequest(url: url))
-            
+       loadUrl("https://www.cheetateam.ir")
+    
     }
+    
+    func loadUrl(_ urlString:String) {
+        let url = URL(string: urlString)!
+                webView.load(URLRequest(url: url))
+    }
+    
 }
 extension WebViewController : WKUIDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
             webView
-        .evaluateJavaScript("alert('\(UserManager.shared.currentUser?.phoneNumber ?? "oops again")')", completionHandler: nil)
+        .evaluateJavaScript("alert('\(userPhoneNumber ?? "oops again")')", completionHandler: nil)
         }
     func webView(_ webView: WKWebView,
                      runJavaScriptAlertPanelWithMessage message: String,

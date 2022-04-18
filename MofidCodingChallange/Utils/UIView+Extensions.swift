@@ -7,7 +7,7 @@
 
 import UIKit
 extension UIView {
-    
+    //pin view to its superview with constants
 func pin(to superView: UIView, top : CGFloat = 0, bottom : CGFloat = 0, left : CGFloat = 0, right : CGFloat = 0){
     translatesAutoresizingMaskIntoConstraints = false
     topAnchor.constraint(equalTo: superView.topAnchor , constant: top).isActive = true

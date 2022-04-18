@@ -16,6 +16,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
         self.window = window
+        
+        ///coordinator setup
         let navController = UINavigationController()
         navController.navigationBar.isHidden = true
         navController.interactivePopGestureRecognizer?.isEnabled = false

@@ -6,9 +6,10 @@
 //
 
 import Foundation
+
 // userdefualts wrapper to use across app
 let defaults = UserDefaults.standard
-
+///encode and decode user class to data for saving and fetching
 extension UserDefaults: ObjectSavable {
     func setObject<Object>(_ object: Object, forKey: String) throws where Object: Encodable {
         let encoder = JSONEncoder()

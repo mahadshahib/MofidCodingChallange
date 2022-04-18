@@ -6,13 +6,14 @@
 //
 
 import Foundation
-private let userCacheKey = "xxxx"
+
 
 class UserManager {
     static let shared = UserManager()
     var currentUser : User?
     
     init() {
+        ///fetch current userlogin state
      fetchCurrentUser()
     }
     
@@ -29,7 +30,7 @@ class UserManager {
         }
     }
    
-    func setCurrentUser(with user:User , completion : @escaping (Bool)->()) {
+   private func setCurrentUser(with user:User , completion : @escaping (Bool)->()) {
         do {
             try defaults.setObject(user, forKey: userCacheKey)
             print("User Saved Successfuly")

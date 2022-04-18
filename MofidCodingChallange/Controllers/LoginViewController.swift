@@ -26,6 +26,11 @@ class LoginViewController: UIViewController {
         button.addTarget(self, action: #selector(self.loginAction), for: .touchUpInside)
         return button
     }()
+    lazy var webButton : UIButton = {
+        let button = UIButton(type: .system)
+        button.addTarget(self, action: #selector(self.openInWebAction), for: .touchUpInside)
+        return button
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,15 +43,25 @@ class LoginViewController: UIViewController {
         configureViews()
     }
     func configureViews() {
+        ///adding views to superview
         view.addSubview(loginButton)
         view.addSubview(textField)
+        view.addSubview(webButton)
+        ///confgure LoginButton
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         loginButton.setTitle("Login", for: .normal)
         loginButton.layer.borderColor = UIColor.red.cgColor
         loginButton.layer.borderWidth = 2
+        ///confgure webButton
+        webButton.translatesAutoresizingMaskIntoConstraints = false
+        webButton.setTitle("Open in Web", for: .normal)
+        webButton.layer.borderColor = UIColor.blue.cgColor
+        webButton.layer.borderWidth = 2
+        /// Configure textField
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.layer.borderColor = UIColor.blue.cgColor
         textField.layer.borderWidth = 2
+        ///adding constraints
         textField.topAnchor.constraint(equalTo: view.topAnchor, constant: 200).isActive = true
         textField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         textField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
@@ -56,6 +71,11 @@ class LoginViewController: UIViewController {
         loginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         loginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         loginButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        loginButton.bottomAnchor.constraint(equalTo: webButton.topAnchor, constant: -20).isActive = true
+        
+        webButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        webButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        webButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
     
     
@@ -68,6 +88,21 @@ class LoginViewController: UIViewController {
                 print("moving to home")
                 self?.coordinator?.presentHomeScreen()
         }
+        } else {
+            print("phone number must be 11 characters")
+        }
+        } else {
+            print("textfield is empty")
+        }
+    }
+    
+    @objc func openInWebAction() {
+        print("Button  Reached")
+        if let text = textField.text {
+        if textField.text?.count == 11 {
+                print("Opening in web")
+                coordinator?.presentWebScreen(userPhoneNumber: text)
+        
         } else {
             print("phone number must be 11 characters")
         }

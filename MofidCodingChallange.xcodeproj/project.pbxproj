@@ -24,6 +24,7 @@
 		0C382B2C280DB47D00BEF215 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C382B2B280DB47D00BEF215 /* UIView+Extensions.swift */; };
 		0C382B2E280DCE0F00BEF215 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C382B2D280DCE0E00BEF215 /* Alert.swift */; };
 		0C382B30280DD7F200BEF215 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C382B2F280DD7F200BEF215 /* WebViewController.swift */; };
+		0C382B39280E000B00BEF215 /* UserCacheKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C382B38280E000B00BEF215 /* UserCacheKey.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		0C382B2B280DB47D00BEF215 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		0C382B2D280DCE0E00BEF215 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		0C382B2F280DD7F200BEF215 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		0C382B38280E000B00BEF215 /* UserCacheKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCacheKey.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,26 +80,75 @@
 		0C382B00280D7F9600BEF215 /* MofidCodingChallange */ = {
 			isa = PBXGroup;
 			children = (
+				0C382B37280DFFE700BEF215 /* Constants */,
+				0C382B36280DFFD000BEF215 /* Managers */,
+				0C382B31280DFE6300BEF215 /* Controllers */,
+				0C382B35280DFE8D00BEF215 /* Utils */,
+				0C382B33280DFE7A00BEF215 /* Models */,
+				0C382B32280DFE7200BEF215 /* Views */,
+				0C382B0F280D7F9B00BEF215 /* Info.plist */,
+			);
+			path = MofidCodingChallange;
+			sourceTree = "<group>";
+		};
+		0C382B31280DFE6300BEF215 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
 				0C382B01280D7F9600BEF215 /* AppDelegate.swift */,
 				0C382B03280D7F9600BEF215 /* SceneDelegate.swift */,
-				0C382B19280D8B5400BEF215 /* UserManager.swift */,
 				0C382B05280D7F9600BEF215 /* ViewController.swift */,
-				0C382B1B280D9E6700BEF215 /* UserDefaultsWrapper.swift */,
+				0C382B2F280DD7F200BEF215 /* WebViewController.swift */,
+				0C382B27280DAE0E00BEF215 /* HomeViewController.swift */,
+				0C382B29280DAE1E00BEF215 /* LoginViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0C382B32280DFE7200BEF215 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0C382B2D280DCE0E00BEF215 /* Alert.swift */,
+				0C382B0A280D7F9B00BEF215 /* Assets.xcassets */,
+				0C382B0C280D7F9B00BEF215 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0C382B33280DFE7A00BEF215 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0C382B23280DAB8600BEF215 /* Coordinator.swift */,
 				0C382B1D280DA08F00BEF215 /* ObjectSavableProtocol.swift */,
 				0C382B21280DA22500BEF215 /* ObjectSavableError.swift */,
 				0C382B15280D7FBC00BEF215 /* User.swift */,
-				0C382B0A280D7F9B00BEF215 /* Assets.xcassets */,
-				0C382B0C280D7F9B00BEF215 /* LaunchScreen.storyboard */,
-				0C382B0F280D7F9B00BEF215 /* Info.plist */,
-				0C382B23280DAB8600BEF215 /* Coordinator.swift */,
-				0C382B2F280DD7F200BEF215 /* WebViewController.swift */,
-				0C382B25280DAC0B00BEF215 /* MainCoordinator.swift */,
-				0C382B27280DAE0E00BEF215 /* HomeViewController.swift */,
-				0C382B29280DAE1E00BEF215 /* LoginViewController.swift */,
-				0C382B2B280DB47D00BEF215 /* UIView+Extensions.swift */,
-				0C382B2D280DCE0E00BEF215 /* Alert.swift */,
 			);
-			path = MofidCodingChallange;
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0C382B35280DFE8D00BEF215 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				0C382B2B280DB47D00BEF215 /* UIView+Extensions.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		0C382B36280DFFD000BEF215 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				0C382B19280D8B5400BEF215 /* UserManager.swift */,
+				0C382B1B280D9E6700BEF215 /* UserDefaultsWrapper.swift */,
+				0C382B25280DAC0B00BEF215 /* MainCoordinator.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		0C382B37280DFFE700BEF215 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				0C382B38280E000B00BEF215 /* UserCacheKey.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,6 +230,7 @@
 				0C382B2E280DCE0F00BEF215 /* Alert.swift in Sources */,
 				0C382B16280D7FBC00BEF215 /* User.swift in Sources */,
 				0C382B06280D7F9600BEF215 /* ViewController.swift in Sources */,
+				0C382B39280E000B00BEF215 /* UserCacheKey.swift in Sources */,
 				0C382B02280D7F9600BEF215 /* AppDelegate.swift in Sources */,
 				0C382B28280DAE0E00BEF215 /* HomeViewController.swift in Sources */,
 				0C382B1C280D9E6700BEF215 /* UserDefaultsWrapper.swift in Sources */,

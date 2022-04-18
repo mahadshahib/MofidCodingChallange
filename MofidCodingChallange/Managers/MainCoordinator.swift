@@ -8,7 +8,7 @@
 import UIKit
 
 class MainCoordinator : Coordinator {
-    var childCoordinators: [Coordinator] = []
+  
     var navigationController: UINavigationController
     
     init(navigationController:UINavigationController) {
@@ -34,9 +34,10 @@ class MainCoordinator : Coordinator {
             self?.navigationController.pushViewController(homeScreen, animated: false)
         }
     }
-    func presentWebScreen() {
+    func presentWebScreen(userPhoneNumber:String) {
         DispatchQueue.main.async { [weak self] in
         let webScreen = WebViewController()
+            webScreen.userPhoneNumber = userPhoneNumber
             self?.navigationController.pushViewController(webScreen, animated: false)
         }
     }

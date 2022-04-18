@@ -49,7 +49,7 @@ extension HomeViewController : UITableViewDelegate , UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        Alert.showMessage(self, "\(indexPath.row+1)" , coordinator: coordinator!)
+        Alert.showMessage(self, "\(indexPath.row+1)")
     }
     
     
