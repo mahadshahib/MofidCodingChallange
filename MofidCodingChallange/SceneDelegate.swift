@@ -17,6 +17,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         self.window = window
         let navController = UINavigationController()
+        navController.navigationBar.isHidden = true
+        navController.interactivePopGestureRecognizer?.isEnabled = false
          coordinator = MainCoordinator(navigationController: navController)
          coordinator?.start()
        

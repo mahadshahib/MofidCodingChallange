@@ -34,5 +34,11 @@ class MainCoordinator : Coordinator {
             self?.navigationController.pushViewController(homeScreen, animated: false)
         }
     }
+    func presentWebScreen() {
+        DispatchQueue.main.async { [weak self] in
+        let webScreen = WebViewController()
+            self?.navigationController.pushViewController(webScreen, animated: false)
+        }
+    }
     
 }
