@@ -7,4 +7,4 @@
 
 import Foundation
 
- let userCacheKey = "nn"
+ let userCacheKey = "currentUser"
