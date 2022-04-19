@@ -19,6 +19,7 @@ extension UserDefaults: ObjectSavable {
         } catch {
             throw ObjectSavableError.EncodingError
         }
+        
     }
     
     func getObject<Object>(forKey: String, castTo type: Object.Type) throws -> Object where Object: Decodable {

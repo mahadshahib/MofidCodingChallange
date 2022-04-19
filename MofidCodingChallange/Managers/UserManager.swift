@@ -14,38 +14,41 @@ class UserManager {
     
     init() {
         ///fetch current userlogin state
-     fetchCurrentUser()
+        fetchCurrentUser()
     }
     
     private func fetchCurrentUser() {
+        DispatchQueue.global(qos: .background).async { [unowned self] in
         do {
             let user = try defaults.getObject(forKey: userCacheKey, castTo: User.self)
-            currentUser = user
+            self.currentUser = user
         } catch let error1 as ObjectSavableError {
             print(error1.description)
-            currentUser = nil
+            self.currentUser = nil
         } catch {
             print(error.localizedDescription)
-            currentUser = nil
+            self.currentUser = nil
         }
     }
-   
+}
    private func setCurrentUser(with user:User , completion : @escaping (Bool)->()) {
+       DispatchQueue.global(qos: .background).async { [unowned self] in
         do {
             try defaults.setObject(user, forKey: userCacheKey)
             print("User Saved Successfuly")
-            currentUser = user
+            self.currentUser = user
             completion(true)
         } catch let error1 as ObjectSavableError {
             print(error1.description)
             completion(false)
-            currentUser = nil
+            self.currentUser = nil
         } catch {
             print(error.localizedDescription)
             completion(false)
-            currentUser = nil
+            self.currentUser = nil
         }
     }
+   }
     
     
     func loginUser(with phoneNumber:String , completion : @escaping (Bool)->()) {
